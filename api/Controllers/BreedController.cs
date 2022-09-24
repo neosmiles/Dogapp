@@ -10,22 +10,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class BreedController : ControllerBase
-    {
+  [ApiController]
+  [Route("api/[controller]")]
+  public class BreedController : ControllerBase
+  {
     private readonly IBreedRepository breedRepository;
     private readonly IMapper mapper;
 
     public BreedController(IBreedRepository breedRepository, IMapper mapper)
-      {
-        this.breedRepository = breedRepository;
-        this.mapper = mapper;
-      }
+    {
+      this.breedRepository = breedRepository;
+      this.mapper = mapper;
+    }
 
-      [HttpPost]
+    [HttpPost]
     public async
-    Task<IActionResult> AddBreed([FromBody] BreedForCreation field)
+  Task<IActionResult> AddBreed([FromBody] BreedForCreation field)
     {
       var dataFromRepo = await breedRepository.AddBreed(field);
       if (dataFromRepo == null)
@@ -167,5 +167,5 @@ namespace api.Controllers
       });
     }
 
-    }
+  }
 }

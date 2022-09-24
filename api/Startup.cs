@@ -32,6 +32,7 @@ namespace api
         {
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<IDogRepository, DogRepository>();
+            services.AddScoped<IBreedRepository, BreedRepository>();
             services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
