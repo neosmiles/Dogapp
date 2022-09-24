@@ -3,30 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Dto;
+using api.Repo;
 using api.Repo.Interface;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
 {
-  [ApiController]
-  [Route("api/[controller]")]
-  public class DogController : ControllerBase
-  {
-    private readonly IDogRepository dogRepository;
+    [ApiController]
+    [Route("api/[controller]")]
+    public class BreedController : ControllerBase
+    {
+    private readonly IBreedRepository breedRepository;
     private readonly IMapper mapper;
 
-    public DogController(IDogRepository dogRepository, IMapper mapper)
-    {
-      this.dogRepository = dogRepository;
-      this.mapper = mapper;
-    }
+    public BreedController(IBreedRepository breedRepository, IMapper mapper)
+      {
+        this.breedRepository = breedRepository;
+        this.mapper = mapper;
+      }
 
-    [HttpPost]
+      [HttpPost]
     public async
-    Task<IActionResult> AddDog([FromBody] DogForCreation field)
+    Task<IActionResult> AddBreed([FromBody] BreedForCreation field)
     {
-      var dataFromRepo = await dogRepository.AddDog(field);
+      var dataFromRepo = await breedRepository.AddBreed(field);
       if (dataFromRepo == null)
       {
         return BadRequest
@@ -48,9 +49,9 @@ namespace api.Controllers
     }
 
     [HttpGet]
-    public async Task<ActionResult<DogForGet>> getDog()
+    public async Task<ActionResult<BreedForGet>> getBreed()
     {
-      var dataFromRepo = await dogRepository.GetDogs();
+      var dataFromRepo = await breedRepository.GetBreeds();
       if (dataFromRepo == null)
       {
         return BadRequest
@@ -67,15 +68,15 @@ namespace api.Controllers
         Message = "Success",
         StatusCode = 201,
         IsSuccessful = true,
-        Data = mapper.Map<ICollection<DogForGet>>(dataFromRepo)
+        Data = mapper.Map<ICollection<BreedForGet>>(dataFromRepo)
       });
     }
 
     [HttpGet]
     [Route("{id:int}")]
-    public async Task<IActionResult> getDogWithId(int id)
+    public async Task<IActionResult> getBreedWithId(int id)
     {
-      var dataFromRepo = await dogRepository.GetDogWithId(id);
+      var dataFromRepo = await breedRepository.GetBreedWithId(id);
       if (dataFromRepo == null)
       {
         return BadRequest(new
@@ -98,9 +99,9 @@ namespace api.Controllers
 
     [HttpGet]
     [Route("name")]
-    public async Task<IActionResult> getDogWithName(String name)
+    public async Task<IActionResult> getBreedWithName(String name)
     {
-      var dataFromRepo = await dogRepository.GetDogWithName(name);
+      var dataFromRepo = await breedRepository.GetBreedWithName(name);
       if (dataFromRepo == null)
       {
         return BadRequest(new
@@ -116,15 +117,15 @@ namespace api.Controllers
         Message = "Success",
         StatusCode = 201,
         IsSuccessful = true,
-        data = mapper.Map<ICollection<DogForGet>>(dataFromRepo)
+        data = mapper.Map<ICollection<BreedForGet>>(dataFromRepo)
       });
     }
 
 
     [HttpPost("Update")]
-    public async Task<IActionResult> UpdateDog(DogForUpdate model)
+    public async Task<IActionResult> UpdateBreed(BreedForUpdate model)
     {
-      var dataFromRepo = await dogRepository.UpdateDog(model);
+      var dataFromRepo = await breedRepository.UpdateBreed(model);
       if (dataFromRepo == null)
       {
         return BadRequest(new
@@ -145,9 +146,9 @@ namespace api.Controllers
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> deleteDog(int id)
+    public async Task<IActionResult> deleteBreed(int id)
     {
-      var dataFromRepo = await dogRepository.DeleteDog(id);
+      var dataFromRepo = await breedRepository.DeleteBreed(id);
       if (!ModelState.IsValid)
         return BadRequest(new
         {
@@ -158,12 +159,13 @@ namespace api.Controllers
 
       return Ok(new
       {
-        Message = "Dog deleted",
+        Message = "Breed deleted",
         StatusCode = 201,
         IsSuccessful = true,
         PostId = id,
         dataFromRepo
       });
     }
-  }
+
+    }
 }
