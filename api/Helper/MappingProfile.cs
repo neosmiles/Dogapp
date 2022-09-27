@@ -17,6 +17,20 @@ namespace api.Helper
 
       CreateMap<Dog, DogForGet>();
       CreateMap<DogForGet, Dog>();
+
+      CreateMap<Dog, DogForReturn>();
+      CreateMap<DogForReturn, Dog>();
+
+
+      CreateMap<Breed, BreedForCreation>();
+      CreateMap<BreedForCreation, Breed>();
+
+      CreateMap<Breed, BreedForGet>();
+      CreateMap<BreedForGet, Breed>();
+
+      CreateMap<Breed, BreedNameDto>();
+      CreateMap<BreedNameDto, Breed>();
+
     }
   }
 

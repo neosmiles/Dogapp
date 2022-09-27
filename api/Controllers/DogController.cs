@@ -92,7 +92,7 @@ namespace api.Controllers
         StatusCode = 200,
         IsSuccessful = true,
         AuthorId = id,
-        data = dataFromRepo
+        data = mapper.Map<ICollection<DogForReturn>>(dataFromRepo)
       });
     }
 

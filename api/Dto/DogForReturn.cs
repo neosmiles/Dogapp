@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace api.Models
+namespace api.Dto
 {
-  public class Dog
+  public class DogForReturn
   {
     public string Name { get; set; }
     public int Id { get; set; }
@@ -15,9 +15,6 @@ namespace api.Models
     public string Color { get; set; }
     public string FavouriteFood { get; set; }
     public string FavouriteToy { get; set; }
-
-    // public ICollection<Breed> Breeds { get; set; }
-
-    public Breed Breed { get; set; }
+    public BreedNameDto Breed { get; set; }
   }
 }

@@ -67,7 +67,9 @@ namespace api.Repo
 
     public async Task<IEnumerable<object>> GetDogWithId(int Id)
     {
-      var dataFromRepo = await context.Dogs.Where(x => x.Id == Id).ToListAsync();
+      var dataFromRepo = await context.Dogs
+      .Include(a => a.Breed)
+      .Where(x => x.Id == Id).ToListAsync();
       return dataFromRepo;
     }
 
