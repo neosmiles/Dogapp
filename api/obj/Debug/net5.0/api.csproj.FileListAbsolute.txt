@@ -5,7 +5,6 @@ C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\api.deps.json
 C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\api.runtimeconfig.json
 C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\api.runtimeconfig.dev.json
 C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\api.dll
-C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\ref\api.dll
 C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\api.pdb
 C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -69,3 +68,4 @@ C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\runtimes\win\lib\netst
 C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Medusa\dotnetProject\DogApp\api\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\MEDUSA\dotnetProject\DogApp\api\obj\Debug\net5.0\refint\api.dll
